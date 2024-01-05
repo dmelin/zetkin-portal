@@ -1,6 +1,5 @@
 # Ignore everything
 wordpress/*.*
-wordpress/wp-admin/*
-wordpress/wp-admin/.*
-wordpress/wp-includes/*
-wordpress/wp-includes/.*
+wordpress/wp-admin
+wordpress/wp-includes
+wordpress/wp-content/languages
