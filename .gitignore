@@ -1,11 +1,6 @@
 # Ignore everything
-*
-
-# But not these files
-!.gitignore
-!docker-compose.yml
-!Dockerfile
-
-# Include everything in wordpress/wp-content
-!wordpress/wp-content/*
-!wordpress/wp-content/.*
+wordpress/*.*
+wordpress/wp-admin/*
+wordpress/wp-admin/.*
+wordpress/wp-includes/*
+wordpress/wp-includes/.*
