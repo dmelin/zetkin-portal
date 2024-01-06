@@ -1,0 +1,306 @@
+
+.bd-edit {
+    height: 100%;
+    display: flex;
+    align-items: stretch;
+}
+
+.bd-edit--tools {
+    width: 18.75rem;
+    flex-shrink: 0;
+    flex-grow: 0;
+    border-right: currentColor solid 1px;
+    background-color: #fff;
+    color: #1e1e1e;
+    display: flex;
+    flex-direction: column;
+}
+
+/* .bd-edit--tools-header {
+    padding: .625rem;
+    border-bottom: currentColor solid 1px;
+} */
+
+.bd-edit--tools-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: #e0e0e0 solid 1px;
+    padding: 6px;
+}
+
+.bd-edit--tools-header > svg {
+    margin-right: .625rem;
+}
+
+.bd-edit--tools-header h2 {
+    /* background:rgba(0, 0, 0, .5); */
+    margin: 0;
+    flex-grow: 1;
+}
+
+/* :not(:first-child) > .bd-edit--tools-header {
+    border-top: currentColor solid 1px;
+} */
+
+
+.bd-edit--tools--library {
+}
+
+.bd-edit--tools--library-category {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.875rem;
+    padding: 0 .625rem;
+    background: rgba(0, 0, 0, .5);
+    color: #fff;
+}
+
+.bd-edit--tools--library-items {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.bd-edit--tools--library-item {
+    appearance: none;
+    padding: .5rem;
+    aspect-ratio: 1/1;
+    border: 0;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    color: var(--color, #000);
+    cursor: pointer;
+}
+
+.bd-edit--tools--library-item:hover,
+.bd-edit--tools--library-item:focus-visible {
+    color: #fff;
+    background-color: var(--color, var(--wp-admin-theme-color));
+}
+
+.bd-edit--tools--library-item-disabled {
+    opacity: .5;
+}
+
+.bd-edit--tools--tree {
+    /* padding: .625rem; */
+    /* flex-grow: 1; */
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    --indent: 1.5rem;
+}
+
+.bd-edit--tools--tree-row {
+    display: flex;
+    align-items: stretch;
+    padding-left: calc(var(--level) * var(--indent));
+}
+
+/* .bd-edit--tools--tree-row:not(.bd-edit--tools--tree-row-selected):hover {
+    background: rgba(0, 0, 0, .1);
+}
+ */
+.bd-edit--tools--tree-row-hovered:not(.bd-edit--tools--tree-row-selected) {
+    background: rgba(0, 0, 0, .1);
+}
+
+.bd-edit--tools--tree-row-selected {
+    background: var(--wp-admin-theme-color);
+    color: #fff !important;
+    /* box-shadow: inset 0 0 0 var(--wp-admin-border-width-focus) var(--wp-admin-theme-color); */
+}
+
+.bd-edit--tools--tree-row-selected * {
+    color: #fff !important;
+}
+
+.bd-edit--tools--tree-row-arrow {
+    border: 0;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    flex-grow: 0;
+    transform: rotate(0deg);
+    transition: transform .15s;
+    color: inherit;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.bd-edit--tools--tree-row-arrow-placeholder {
+    flex-grow: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+    display: inline-block;
+}
+
+.bd-edit--tools--tree-row-open .bd-edit--tools--tree-row-arrow {
+    transform: rotate(90deg);
+}
+
+.bd-edit--tools--tree-row-title {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    cursor: default;
+    color: currentColor;
+    padding: .125rem 0;
+    gap: .25rem;
+}
+
+.bd-edit--tools--tree-row-title:hover:not(:disabled) {
+    color: currentColor;
+}
+
+.bd-edit--tools--tree-childlist {
+    margin: 0;
+    padding: 0;
+}
+
+.bd-edit--tools--tree-childlist-item {
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.bd-edit--canvas--outer {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bd-edit--canvas--header {
+    border-bottom: #e0e0e0 solid 1px;
+    height: 48px;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    padding: 0 6px;
+    justify-content: space-between;
+    align-items: center;
+    gap: 6px;
+}
+
+.bd-edit--canvas--header--left,
+.bd-edit--canvas--header--right {
+    flex: 1 1 0px;
+}
+
+.bd-edit--canvas--header--center {
+    display: flex;
+    justify-content: center;
+    gap: .5rem;
+}
+
+.bd-edit--canvas--header--right {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.bd-edit--canvas--header--canvasSettings {
+    white-space: nowrap;
+}
+
+.bd-edit--canvas--header--canvasSettings .components-toggle-control .components-base-control__field {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.bd-edit--canvas--header--canvasSettings .components-toggle-control .components-base-control__field .components-form-toggle {
+    margin: 0;
+}
+
+.bd-edit--canvas {
+    flex-grow: 1;
+}
+
+.bd-edit--canvas [data-selected="true"] {
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 0 0 var(--wp-admin-border-width-focus) var(--wp-admin-theme-color);
+}
+
+.bd-edit--panel {
+    width: 18.75rem;
+    flex-shrink: 0;
+    flex-grow: 0;
+    border-left: currentColor solid 1px;
+    background-color: #fff;
+    color: #1e1e1e;
+    /* padding: .625rem; */
+    overflow: auto;
+    
+}
+
+/* .bd-edit--panel .components-base-control {
+    margin-bottom: 24px;
+} */
+
+
+.bd-edit--panel-tab-element--empty {
+    padding-top: 3.125rem;
+    display: flex;
+    flex-direction: column;
+    grid-gap: .625rem;
+    align-items: center;
+    color:rgba(0, 0, 0, .5);
+}
+
+.bd-edit--panel-tab-element--empty svg {
+    width: 3.125rem;
+    height: 3.125rem;
+}
+
+.bd-edit--panel .components-input-control__container {
+
+}
+
+.bd-edit--panel .components-unit-control-wrapper {
+    margin-bottom: 8px;
+}
+
+.bd-edit--labelPositionEdge .components-input-control__label {
+    width: 8em;
+}
+
+
+.bd-edit--panel .components-base-control__label {
+    display: block;
+}
+
+/* .bd-edit--panel #inspector-box-control-0,
+.bd-edit--panel #inspector-box-control-1,
+.bd-edit--panel #inspector-box-control-2, */
+.bd-edit--panel [id^="inspector-box-control-"] {
+    max-width: none;
+}
+
+
+.bd-edit--panel .components-unit-control__select {
+    letter-spacing: 0 !important;
+    font-size: 11px !important;
+    width: 25px !important;
+}
+
+.bd-edit--panel .components-unit-control .components-input-control__input {
+    padding-right: 0 !important;
+}
+
+.bd-edit--panel .bd-components-button-red {
+    color: #b32d2e !important;
+    border: 1px solid #b32d2e !important;
+    box-shadow: none !important;
+}
+
+.bd-edit--panel .bd-components-button-red:hover,
+.bd-edit--panel .bd-components-button-red:focus-visible {
+    background: #b32d2e !important;
+    color: #fff !important;
+}

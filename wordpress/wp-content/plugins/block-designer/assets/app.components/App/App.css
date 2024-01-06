@@ -1,0 +1,116 @@
+
+
+.BDApp {
+    /* font-size: 1rem; */
+    height: calc(100vh - (var(--BDApp--rect-top) * 1px));
+    /* display: flex;
+    flex-direction: column; */
+    background: #fff;
+
+
+    --BDApp-header-height: calc((.75rem * 2) + 2.25rem);
+}
+
+
+.BDApp__header {
+    /* padding: .75rem 1.5rem;
+    background: #fff;
+    box-shadow: 0 0 .3125rem rgba(0, 0, 0, .5);
+    z-index: 1;
+    position: relative;
+    line-height: 2.25rem; */
+    
+
+    height: var(--BDApp-header-height);
+}
+
+.BDApp__header-inner {
+    padding: .75rem 1.5rem;
+    background: #fff;
+    box-shadow: 0 0 .3125rem rgba(0, 0, 0, .5);
+    z-index: 1;
+    position: fixed;
+    line-height: 2.25rem;
+    top: var(--BDApp--rect-top);
+    width: calc(var(--BDApp--rect-width) * 1px);
+    height: var(--BDApp-header-height);
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    grid-gap: .75rem;
+}
+
+.BDApp__header-inner > h1 {
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+}
+
+
+
+.BDApp__body {
+    height: calc(100% - var(--BDApp-header-height));
+    /* --BDBody-padding: 3rem;
+    padding: var(--BDBody-padding); */
+    /* margin: 0 auto; */
+    /* max-width: 62.5rem; */
+    /* color: #fff; */
+    flex-grow: 1;
+}
+
+
+.BDApp .components-panel__body-title .components-button {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: .5rem;
+    line-height: 1.5rem;
+}
+
+.BDApp .components-panel__body-title .components-panel__icon {
+    margin-left: 0;
+}
+
+
+
+.BDApp__wait {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000000;
+    background: rgba(0, 0, 0, .5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.BDApp__wait::after {
+    content: " ";
+    animation-name: BDApp__wait-animation;
+    animation-duration: .5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    border: solid 2px;
+    border-color: transparent transparent #fff #fff;
+    border-radius: 50%;
+    display: block;
+    width: 50px;
+    height: 50px;
+    transform: rotate(0deg);
+}
+
+@keyframes BDApp__wait-animation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+
+

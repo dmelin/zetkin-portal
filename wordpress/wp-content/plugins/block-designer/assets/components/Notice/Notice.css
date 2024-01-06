@@ -1,0 +1,16 @@
+
+.BDNotice .components-notice {
+    margin: 0;
+}
+
+.BDNotice .components-notice.is-dismissible {
+    padding-right: 0;
+}
+
+.BDNotice .components-notice.is-info {
+    background-color: rgba(var(--wp-admin-theme-color--rgb), .1);
+}
+
+.BDNotice .components-notice__content {
+    margin-right: 0;
+}

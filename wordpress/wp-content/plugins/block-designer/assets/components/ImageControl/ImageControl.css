@@ -1,0 +1,16 @@
+
+.BDImageControl--overlay {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.BDImageControl--overlay > * {
+    pointer-events: all;
+}
+
+.BDImageControl--overlay:hover,
+.BDImageControl--overlay:focus-within,
+img:hover + .BDImageControl--overlay,
+.wp-block.is-selected .BDImageControl--overlay {
+    opacity: 1;
+}

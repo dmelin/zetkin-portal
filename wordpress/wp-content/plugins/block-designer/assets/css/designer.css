@@ -1,0 +1,28 @@
+#wpcontent {
+    padding: 0;
+}
+#wpbody-content {
+    padding-bottom: 0;
+}
+.wrap {
+    margin: 0;
+}
+
+@media screen and (max-width: 782px) {
+    .auto-fold #wpcontent {
+        padding-left: 0;
+    }
+}
+
+body {
+    /* background: linear-gradient(135deg,rgb(61, 61, 61) 0%,rgb(10, 10, 10) 100%);
+    background-attachment: fixed; */
+}
+
+#wpfooter {
+    display: none;
+}
+
+#wpbody-content > *:not(.block-designer-root) {
+    display: none;
+}

@@ -1,0 +1,212 @@
+
+.AppFeedback {
+    --highlight-color: #f96a06;
+    --highlight-color-darker: hsl(25, 95%, 40%);
+    --background-color: rgb(6, 147, 227);
+}
+
+.AppFeedback--more-feedback {
+    position: fixed;
+    left: calc(1rem + (var(--BDApp--rect-left) * 1px));
+    bottom: 1rem;
+    transform-origin: center bottom;
+
+    opacity: 0;
+    transform: translateY(100%) scale(.75);
+
+    transition: opacity .3s, transform .3s;
+}
+
+.AppFeedback--more-feedback.open {
+    opacity: 1;
+    transform: translateY(0%) scale(1);
+    transition: opacity .5s, transform .5s;
+}
+
+.AppFeedback--more-feedback.close {
+    opacity: 0;
+    transform: translateY(100%) scale(.75);
+    transition: opacity .3s, transform .3s;
+}
+
+.AppFeedback--more-feedback .components-button.is-primary {
+    background-color: var(--background-color) !important;
+    transition: transform .15s, box-shadow .15s;
+}
+
+.AppFeedback--more-feedback .components-button.is-primary:hover:not(:disabled),
+.AppFeedback--more-feedback .components-button.is-primary:focus-visible:not(:disabled) {
+    transform: scale(1.05);
+    box-shadow: .5em .5em 1em rgb(0 0 0 / 50%);
+}
+.AppFeedback--more-feedback .components-button.is-primary:hover:active:not(:disabled) {
+    transform: scale(1.025);
+    box-shadow: .25em .25em .5em rgb(0 0 0 / 50%);
+}
+
+.AppFeedback--outer {
+    padding: 0 0 2rem;
+    position: fixed;
+    right: 50%;
+    bottom: 0;
+    animation-play-state: running;
+    z-index: 100000000;
+    transform-origin: center bottom;
+
+    opacity: 0;
+    transform: translate(50%, 100%) scale(.75);
+
+    animation-fill-mode: both;
+    animation-iteration-count: 1;
+
+}
+
+.AppFeedback--outer.open {
+    animation-name: AppFeedback--animation--open;
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation-duration: .5s;
+}
+
+.AppFeedback--outer.close {
+    animation-name: AppFeedback--animation--close;
+    animation-duration: .3s;
+}
+
+@keyframes AppFeedback--animation--open {
+    0% {
+        opacity: 0;
+        transform: translate(50%, 100%) scale(.75);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(50%, 0%) scale(1);
+    }
+}
+
+@keyframes AppFeedback--animation--close {
+    0% {
+        opacity: 1;
+        transform: translate(50%, 0%) scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(50%, 100%) scale(.75);
+    }
+}
+
+.AppFeedback--inner {
+    box-shadow: rgb(0 0 0 / 50%) 0.5rem 0.5rem 3rem;
+    background-color: var(--background-color);
+    color: rgb(255, 255, 255);
+    display: flex;
+    --border-radius: 5px;
+    border-radius: var(--border-radius);
+    position: relative;
+
+    transition: all .3s;
+    padding: 2rem 2rem 2rem 15rem;
+}
+
+.AppFeedback--face {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 155%;
+    aspect-ratio: 1/1;
+    filter: hue-rotate(-15deg) contrast(1.3) saturate(1.1);
+    overflow: hidden;
+    pointer-events: none;
+    border-bottom-left-radius: var(--border-radius);
+}
+
+.AppFeedback--face::before {
+    content: " ";
+    background-image: url("developer-photo.png");
+    background-repeat: no-repeat;
+    background-position: -8% bottom;
+    /* background-size: auto 150%; */
+    background-size: 100% 100%;
+    width: 100%;
+    height: 100%;
+    display: block;
+    transform: translateX(-20%);
+}
+
+.AppFeedback--h2 {
+    font-size: 1.5rem;
+    line-height: 1em;
+    color: #fff;
+    margin: 0 0 1em;
+}
+
+.AppFeedback--inner p {
+    margin: .5em 0;
+    line-height: 1.2;
+    font-size: 1rem;
+}
+
+.AppFeedback--inner .components-button.is-primary {
+    background-color: var(--highlight-color) !important;
+    transition: transform .15s, box-shadow .15s;
+}
+
+.AppFeedback--inner .components-button.is-primary:hover:not(:disabled),
+.AppFeedback--inner .components-button.is-primary:focus-visible:not(:disabled) {
+    transform: scale(1.05);
+    box-shadow: .5em .5em 1em rgb(0 0 0 / 50%);
+}
+.AppFeedback--inner .components-button.is-primary:hover:active:not(:disabled) {
+    transform: scale(1.025);
+    box-shadow: .25em .25em .5em rgb(0 0 0 / 50%);
+}
+
+.AppFeedback--inner .components-button.is-secondary {
+    box-shadow: inset 0 0 0 1px #fff;
+}
+
+.AppFeedback--inner .components-button.is-secondary:hover:not(:disabled),
+.AppFeedback--inner .components-button.is-tertiary:hover:not(:disabled) {
+    box-shadow: inset 0 0 0 1px #fff;
+}
+
+.AppFeedback--inner .components-button.is-secondary,
+.AppFeedback--inner .components-button.is-tertiary {
+    color: #fff;
+}
+
+.AppFeedback--inner .components-button.is-secondary:hover:not(:disabled),
+.AppFeedback--inner .components-button.is-tertiary:hover:not(:disabled) {
+    color: #fff;
+}
+
+.AppFeedback--inner .components-button.is-secondary:active:not(:disabled),
+.AppFeedback--inner .components-button.is-tertiary:active:not(:disabled) {
+    background-color: rgba(0, 0, 0, .5);
+    color: #fff;
+}
+
+.AppFeedback--coming-soon {
+    font-size: 1rem;
+    line-height: 1.5em;
+}
+
+.AppFeedback--close {
+    background: transparent;
+    border: 0;
+    position: absolute;
+    right: .5rem;
+    top: .5rem;
+    padding: 0;
+    margin: 0;
+    color: inherit;
+    opacity: .5;
+    cursor: pointer;
+    transition: all .3s;
+}
+
+.AppFeedback--close:hover,
+.AppFeedback--close:focus-visible {
+    opacity: 1;
+}

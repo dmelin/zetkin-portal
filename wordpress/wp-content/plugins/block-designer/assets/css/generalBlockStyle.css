@@ -1,0 +1,22 @@
+
+PREFIXimg.wp-block-BLOCKNAMESPACE---,
+PREFIX.wp-block-BLOCKNAMESPACE--- img {
+    vertical-align: middle;
+}
+
+PREFIX.wp-block-BLOCKNAMESPACE---,
+PREFIX.wp-block-BLOCKNAMESPACE--- * {
+    box-sizing: border-box;
+}
+
+PREFIX.bd-authorlink {
+    text-decoration: inherit;
+    color: inherit;
+    display: inline-block;
+}
+
+PREFIX.bd-authorlink:focus,
+PREFIX.bd-authorlink:hover {
+    text-decoration: unset;
+    color: unset;
+}

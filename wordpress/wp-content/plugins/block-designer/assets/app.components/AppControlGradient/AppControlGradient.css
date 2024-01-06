@@ -1,0 +1,8 @@
+
+.bd-AppControlGradient * {
+    box-sizing: border-box;
+}
+
+.bd-AppControlGradient .components-custom-gradient-picker__gradient-bar:not(.has-gradient) {
+    opacity: 1;
+}
