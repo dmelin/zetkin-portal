@@ -1,10 +1,10 @@
 <?php
 
 /**
- * Plugin Name: My Custom Plugin
- * Description: Adds a new section in the wp-admin menu with a custom png icon and with two sub items.
+ * Plugin Name: Zetkin Courses
+ * Description: Handles post types and other portal items that theme should not override
  * Version: 1.0
- * Author: Your Name
+ * Author: Daniel Melin
  */
 
 if (!class_exists('zetkinCourses')) {
@@ -25,35 +25,8 @@ if (!class_exists('zetkinCourses')) {
             foreach (glob(__DIR__ . '/post_types/*.json') as $postType) {
                 $this->posts($postType);
             }
-
-            // $this->blocks();
         }
 
-        public function blocks()
-        {
-            $styleURI = plugin_dir_url(__FILE__) . '/blocks/src/style.css';
-            //Enquee style
-            wp_enqueue_style(
-                'myFirst-block-style',
-                $styleURI,
-            );
-            // Register JavasScript File build/index.js
-            wp_register_script(
-                'myFirstblock',
-                plugins_url('blocks/build/index.js', __FILE__),
-                array('wp-blocks', 'wp-element', 'wp-editor'),
-            );
-            // Register editor style src/editor.css
-            wp_register_style(
-                'myFirst-block-editor-style',
-                plugins_url('blocks/src/editor.css', __FILE__),
-            );
-            // Register block
-            register_block_type('gutenreact/myFirst-block', array(
-                'editor_script' => 'myFirstblock',
-                'editor_style' => 'myFirst-block-editor-style',
-            ));
-        }
         public function admin_menu()
         {
             add_menu_page(
